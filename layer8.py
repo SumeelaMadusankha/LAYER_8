@@ -85,8 +85,7 @@ param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
 kernal = ['linear', 'poly', 'rbf', 'sigmoid']
 gamma = ['auto', 'scale']
 
-gs_ = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
-gs = SVC(C=0.1, gamma='auto', kernel='linear')
+gs = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
 gs = gs.fit(X_train_pca, y_label_1_train)
 
 
@@ -154,8 +153,7 @@ param_grid = {
      'weights': ['uniform', 'distance'],
     'p': [1, 2]  # Corresponds to Manhattan and Euclidean distances
               }
-# gs_label_2_ = GridSearchCV(estimator=KNN(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
-gs_label_2 = KNN(n_neighbors=5, weights='uniform', p=1)
+gs_label_2 = GridSearchCV(estimator=KNN(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
 gs_label_2 = gs_label_2.fit(X_train_label2_pca, y_label2_train)
 
 
@@ -200,8 +198,7 @@ print(f"Cross-validation accuracy for svc_label_3: {np.mean(cv_score):.2f}")
 param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
               'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
               'gamma': ['auto', 'scale']}
-gs_label_3_svc_ = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
-gs_label_3_svc = SVC(C=0.1, gamma='auto', kernel='linear')
+gs_label_3_svc = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
 gs_label_3_svc = gs_label_3_svc.fit(X_train_pca, y_label_3_train)
 
 
@@ -245,8 +242,7 @@ print('Validate f1 for label 4: %.3f' % f1_score(y_true=y_valid_label4, y_pred=p
 param_grid = {'C': [0.001, 0.01, 0.1, 1, 10, 100],
               'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
               'gamma': ['auto', 'scale']}
-gs_label_4_svc_ = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
-gs_label_4_svc = SVC(C=0.01, gamma='auto', kernel='linear')
+gs_label_4_svc = GridSearchCV(estimator=SVC(), param_grid=param_grid, scoring='accuracy', cv=5, n_jobs=-1)
 gs_label_4_svc = gs_label_4_svc.fit(X_train_pca, y_label_4_train)
 
 #evaluate train model
